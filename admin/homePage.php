@@ -1,5 +1,10 @@
+
+
+// view all students data
+
+
 <div style="padding:5%">
-    <h1>Requests From Students</h1>
+    <h1>Faculty List</h1>
     <br>
     <br>
     <input type="text" id="searchInput" oninput="searchTable()" placeholder="Search by name">
@@ -11,88 +16,68 @@
                 <th>S.No.</th>
                 <th>Name Of student</th>
                 <th>MUJ ID</th>
-                <th>branch</th>
-                <th>year</th>
+                <th>Designation</th>
+                <th>Specialization</th>
                 <th>Mobile No</th>
                 <th>E-mail ID</th>
-                
-                <th>Project Name</th>
-                <th>proposal</th>
-                <th>accept</th>
+                <th>Alloted Students</th>
+                <th>Problem Statement</th>
+                <th>Apply</th>
             </tr>
         </thead>
         <tbody>
+      
             <?php
              $sr=1;
-             $search_query = "SELECT * FROM `requests` where facultyId='$facultyId'";
+             $search_query = "SELECT * FROM `students`";
              $result_query = mysqli_query($con, $search_query);
-             $search_query3 = "SELECT * FROM `faculty` where facultyId='$facultyId'";
-             $result_query3= mysqli_query($con, $search_query3);
-             $row3 = mysqli_fetch_assoc($result_query3);
-             $studentsAlloted=$row3['studentsAlloted'];
-             $maxCap=$row3['maxCap'];
 
              while ($row = mysqli_fetch_assoc($result_query)) {
-              $regNo=$row['regNo'];
-              $proposal=$row['proposal'];
-              $project_name=$row['project_name'];
-              $search_query2 = "SELECT * FROM `students` where regNo='$regNo'";
-             $result_query2 = mysqli_query($con, $search_query2);
-             $row2 = mysqli_fetch_assoc($result_query2);
-             
-
                 // Access the column values
-                $name=$row2['name']; 
-                $facultyId=$row2['regNo']; 
-                $phoneNo=$row2['phoneNo']; 
-                $email=$row2['email']; 
-                $branch=$row2['branch']; 
-                $year=$row2['year']; 
-                $mentorId=$row2['mentorId']; 
-                
+                $name=$row['name']; 
+                $facultyId=$row['facultyId']; 
+                $phoneNo=$row['phoneNo']; 
+                $email=$row['email']; 
+                $studentsAlloted=$row['studentsAlloted']; 
+                $driveLink=$row['driveLink']; 
+                $designation=$row['designation']; 
+                $specialization=$row['specialization']; 
+                $maxCap=$row['maxCap']; 
+
                 // Display table rows for each item in the armory
                 echo"
 
             <tr >
                 <td>$sr</td>
                 <td >$name</td>
-                <td>$regNo</td>
-                <td>$branch</td>
-                <td>$year</td>
+                <td>$facultyId</td>
+                <td>$designation</td>
+                <td>$specialization</td>
                 <td>$phoneNo</td>
                 <td>$email</td>
-                <td>$project_name</td>
-                <td><a href='$proposal' style='background-color: #008CBA; /* Green */
+                <td>$studentsAlloted</td>
+                <td>
+                <a href='$driveLink' style='background-color:rgb(48, 172, 255);
                 border: none;
                 color: white;
                 padding: 15px 32px;
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
-                font-size: 16px;'  class='btn btn-primary'
-          
-                    
-             
-                '>Open</a></td>";
+                font-size: 16pxt;' target='_blank'>OPEN</a>
 
-                if ($studentsAlloted<$maxCap AND $mentorId==NULL ) {
-                  echo"  <td><a href='index.php?accepted=$regNo' class='btn btn-success' style='background-color: #04AA6D;
+                
+                </td>";
+
+                if ($studentsAlloted<$maxCap   ) {
+                  echo"  <td><a href='index.php?proposal=$facultyId' class='btn btn-success' style='background-color: #04AA6D;
                   border: none;
                   color: white;
                   padding: 15px 32px;
                   text-align: center;
                   text-decoration: none;
                   display: inline-block;
-                  font-size: 16px;'>Accept</a>
-                  <a href='index.php?denied=$regNo' class='btn btn-danger' style='background-color: #ff0000;
-                  border: none;
-                  color: white;
-                  padding: 15px 32px;
-                  text-align: center;
-                  text-decoration: none;
-                  display: inline-block;
-                  font-size: 16px;'>Reject</a></td>
-                  ";
+                  font-size: 16px;'>Apply</a></td>";
                 }else{
                     echo"  <td><button style='background-color: #f44336;
                     border: none;
@@ -112,13 +97,16 @@ $sr+=1;
 
             
             ?>
+    
+
+            
         </tbody>
     </table>
    
  
     <script>
         function  openProposalForm2(){
-            alert("Faculty Already has 12 students or student already alloted");
+            alert("Faculty Already has 12 students");
         }
       </script>
 <script>
@@ -137,3 +125,25 @@ $sr+=1;
       }
     }
   </script>
+  <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+

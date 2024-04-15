@@ -1,3 +1,29 @@
+
+<?php
+$regNo=$_SESSION['regNo'];
+$search_query2 = "SELECT * FROM `students` where regNo='$regNo'";
+$result_query2 = mysqli_query($con, $search_query2);
+
+// while ($row = mysqli_fetch_assoc($result_query)) {
+$students = mysqli_fetch_assoc($result_query2);
+
+$mentorId=$students['mentorId'];
+$req=$students['req'];
+
+if ($mentorId!=NULL) {
+  echo "<script> alert('ALREADY ALLOTED ')</script>";
+  echo "<script> window.open('index.php?homePage','_self')</script>";
+ 
+}
+if(!($req<3)){
+  echo "<script> alert('Can Only Req to 3 faculties')</script>";
+  echo "<script> window.open('index.php?homePage','_self')</script>";
+  
+}
+
+?>
+
+
 <div style="padding:5%">
     <h1>Faculty List</h1>
     <br>
@@ -21,6 +47,7 @@
             </tr>
         </thead>
         <tbody>
+      
             <?php
              $sr=1;
              $search_query = "SELECT * FROM `faculty`";
@@ -50,20 +77,20 @@
                 <td>$phoneNo</td>
                 <td>$email</td>
                 <td>$studentsAlloted</td>
-                <td><a href='$driveLink' style='background-color: #008CBA; /* Green */
+                <td>
+                <a href='$driveLink' style='background-color:rgb(48, 172, 255);
                 border: none;
                 color: white;
                 padding: 15px 32px;
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
-                font-size: 16px;'  class='btn btn-primary'
-          
-                    
-             
-                '>Open</a></td>";
+                font-size: 16pxt;' target='_blank'>OPEN</a>
 
-                if ($studentsAlloted<$maxCap) {
+                
+                </td>";
+
+                if ($studentsAlloted<$maxCap   ) {
                   echo"  <td><a href='index.php?proposal=$facultyId' class='btn btn-success' style='background-color: #04AA6D;
                   border: none;
                   color: white;
@@ -91,6 +118,9 @@ $sr+=1;
 
             
             ?>
+    
+
+            
         </tbody>
     </table>
    
@@ -116,3 +146,23 @@ $sr+=1;
       }
     }
   </script>
+  <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

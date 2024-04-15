@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 
 
 <?php
@@ -13,6 +13,7 @@
                     $email=$row_image['email'];
                     $branch=$row_image['branch'];
                     $year=$row_image['year'];
+                    $mentorId=$row_image['mentorId'];
                     ?>
 
 
@@ -44,7 +45,12 @@
                     <p>$email</p>
                     <h5>phone no</h5>
                     <p>$phoneNo</p>
-                   "; ?>
+                   ";
+                   if($mentorId!=NULL){
+                    echo"<h5>mentor Name</h5>
+                    <a href='index.php?facultyDetail=$mentorId'>$mentorId</a>";
+                  }
+                   ?>
                 </div>
             </div>
         </aside>
@@ -174,4 +180,4 @@
 
     
     <script src="timeTable.js"></script>
-    <script src="app.js"></script>
+    <script src="app.js"></script> -->

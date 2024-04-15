@@ -57,9 +57,9 @@ body{
 <body>
 
 <div class="topnav">
-  <a class="active" href="user_login.php">student login</a>
+  <a  href="user_login.php">student login</a>
   <a href="faculty_login.php">faculty Login</a>
-  <a href="admin_login.php">admin Login</a>
+  <a class="active"href="admin_login.php">admin Login</a>
   
 </div>
 
@@ -67,15 +67,15 @@ body{
 
 
 <div class="container-fluid my-3 p-5" style="border:8px; margin-top:20px; width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
-    <h2 class="text-center p-3">User Login</h2>
+    <h2 class="text-center p-3">Admin Login</h2>
     <div class="row d-flex align-items-center justify-content-center mt-5">
         <div class="col-lg-12 col-xl-6">
             <form action="" method="post" >
 
                 <!-- username -->
                 <div class="form-outline mb-4">
-                    <label for="regNo" class="form-label">registration Number</label>
-                    <input type="text" id="regNo" class="form-control" placeholder="Enter your username" autocomplete="off" required="required" name="regNo">
+                    <label for="facultyId" class="form-label">admin Number</label>
+                    <input type="text" id="facultyId" class="form-control" placeholder="Enter your faculty number" autocomplete="off" required="required" name="facultyId">
                 </div>
 
             
@@ -106,10 +106,10 @@ body{
 
 <?php
 if (isset($_POST['user_login'])) {
-   $regNo=$_POST['regNo'];
+   $facultyId=$_POST['facultyId'];
     $password=$_POST['password'];
 
-    $select_query="select * from `students` where regNo='$regNo'";
+    $select_query="select * from `faculty` where facultyId='$facultyId'";
     $result=mysqli_query($con,$select_query);
     $row_count=mysqli_num_rows($result);
 
@@ -122,7 +122,7 @@ if (isset($_POST['user_login'])) {
 
     //if there are cart items user redirected to cart
 
-    // $select_query_cart="select * from `user_table` where username='$regNo'";
+    // $select_query_cart="select * from `user_table` where username='$facultyId'";
     // $select_cart=mysqli_query($con,$select_query_cart);
     // $row_count_cart=mysqli_num_rows($select_cart);
 
@@ -139,12 +139,12 @@ if (isset($_POST['user_login'])) {
             if($row_count==1){
                 // find access field of user
                 
-                $_SESSION['regNo']=$regNo;
-                $_SESSION['role']='student';
+                $_SESSION['adminId']=$facultyId;
+                $_SESSION['role']='admin';
                 
                 // echo "<script> window.open('profile.php','self')</script>";
                 
-                echo "<script> window.open('../index.php?homePage','_self')</script>";
+                echo "<script> window.open('../admin/index.php?homePage','_self')</script>";
                 }
 
 // change ip of user in user_table
@@ -160,7 +160,7 @@ if (isset($_POST['user_login'])) {
 
         }else{
             echo "<script> alert('invalid credentials')</script>";
-            echo "<script> window.open('../index.php','_self')</script>";
+            
         }
 
     }else{

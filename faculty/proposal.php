@@ -1,92 +1,74 @@
-<div style="padding:10%">
-
-
-
-
-
-    <h2 class="text-center m-4 mt-5 pt-3" style="text-align: center;">submit proposal</h2>
-    <div class="row d-flex align-items-center justify-content-center">
-        <div class="col-lg-12 col-xl-6">
-            <form action="" method="post" enctype="multipart/form-data">
-
-
-
- <!-- name -->
- <div class="form-outline mb-4">
-                    <label for="project_name" class="form-label">project_name</label>
-                    <input type="text" id="project_name" class="form-control" placeholder="Enter your project_name" autocomplete="off" required="required" name="project_name">
-                </div>
-
-
-                <!-- username -->
-                <div class="form-outline mb-4">
-                    <label for="proposal" class="form-label">submit your proposal in a drive link</label>
-                    <input type="text" id="proposal" class="form-control" placeholder="Enter your proposal" autocomplete="off" required="required" name="proposal">
-                </div>
-
-                
-               
-
-                
-            
-                <div class="mt-4 pt-2">
-                    <input type="submit" value="Submit" class="bg-secondary py-2 px-3 border-0" style='border-radius:50px; color:white;' name='proposal_submit'>
-                    <a href="../index.php" class="bg-secondary py-2 px-3 border-0" style='text-decoration:none; border-radius:50px; color:white;' >RETURN TO HOME</a>
-
-
-
-    
-                    
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-</div>
-
-
 <?php
 
 
+$regNo=$_GET['accepted'];
+echo"<p>$regNO</p>";
 
-if(isset($_POST['proposal_submit'])) {
-    $regNo=$_SESSION['regNo'];
-    $facultyId=$_GET['proposal'];
-    $proposal= $_POST['proposal'];
-    $project_name= $_POST['project_name'];
-    
-    
-    
-    
-    
-    
-    
-    
+$facultyId=$_SESSION['facultyId'];
 
-  
-    
-    // select query
+$search_query = "SELECT * FROM `faculty` where facultyId='$facultyId'";
+$result_query = mysqli_query($con, $search_query);
 
-    $select_query="select * from `requests` where regNo='$regNo' and facultyid='$facultyId'";
-    $result=mysqli_query($con,$select_query);
-    $rows_count=mysqli_num_rows($result);
-    if($rows_count>0){
-        echo "<script>alert('request already exists')</script>";
+// while ($row = mysqli_fetch_assoc($result_query)) {
+$faculty = mysqli_fetch_assoc($result_query);
+$maxCap=$faculty['maxCap'];
+$studentsAlloted=$faculty['studentsAlloted'];
+
+$search_query2 = "SELECT * FROM `students` where regNo='$regNo'";
+$result_query2 = mysqli_query($con, $search_query2);
+
+// while ($row = mysqli_fetch_assoc($result_query)) {
+$students = mysqli_fetch_assoc($result_query2);
+
+$search_query3 = "SELECT * FROM `requests` where regNo='$regNo' AND facultyId='$facultyId'";
+$result_query3 = mysqli_query($con, $search_query3);
+
+// while ($row = mysqli_fetch_assoc($result_query)) {
+$requests = mysqli_fetch_assoc($result_query3);
+$project_name=$requests['project_name'];
+$proposal=$requests['proposal'];
+
+
+$row_count=mysqli_num_rows($result_query3);
+
+if($row_count==1){
+    // update alloted to 1 from null value
+    if(isset($_GET['accepted'])AND $studentsAlloted<$maxCap){
+        $update="UPDATE `requests` SET `accepted`='1' WHERE regNo='$regNo' AND facultyId='$facultyId'";
+        $result_query4 = mysqli_query($con, $update);
+        if ($result_query4) {
+            // DELETE REQ , ALLOT MENTOR, ADD TO ALLOTED, delete other requests ,faculty alloted +1
+            $deleteReq="delete from `requests` WHERE regNo='$regNo'";
+            $result_query5 = mysqli_query($con, $deleteReq);
+            $updateStu="UPDATE `students` SET `mentorId`='$facultyId' WHERE regNo='$regNo'";
+            $result_query6 = mysqli_query($con, $updateStu);
+            $updateStu="UPDATE `students` SET `req`='0' WHERE regNo='$regNo'";
+            $result_query6 = mysqli_query($con, $updateStu);
+            $insert_query="insert into `alloted-students` (regNo,facultyId,proposal,project_name) values ('$regNo','$facultyId','$proposal','$project_name')";
+            $sql_execute=mysqli_query($con,$insert_query);
+            $studentsAlloted=$studentsAlloted+1;
+            $updateFac="UPDATE `faculty` SET `studentsAlloted`='$studentsAlloted' WHERE facultyId='$facultyId'";
+            $result_query6 = mysqli_query($con, $updateFac);
+
+           
+
+
+
+            
+
+
+
+            
+        }
+
+
     }
-    else{
-        // insert query
-    
-    $insert_query="insert into `requests` (regNo,facultyid,proposal,project_name) values ('$regNo','$facultyId','$proposal','$project_name')";
-    
-    $sql_execute=mysqli_query($con,$insert_query);
    
-    echo "<script> alert('requested succesfully')</script>";
-    // echo "<script> window.open('profile.php','self')</script>";
-    }
-
-
-
 }
+
+
+
+
+
 
 ?>

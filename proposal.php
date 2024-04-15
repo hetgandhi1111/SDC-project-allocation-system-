@@ -1,3 +1,27 @@
+
+<?php
+$regNo=$_SESSION['regNo'];
+$search_query2 = "SELECT * FROM `students` where regNo='$regNo'";
+$result_query2 = mysqli_query($con, $search_query2);
+
+// while ($row = mysqli_fetch_assoc($result_query)) {
+$students = mysqli_fetch_assoc($result_query2);
+
+$mentorId=$students['mentorId'];
+
+if ($mentorId!=NULL) {
+ 
+  echo "<script> window.open('index.php?homePage','_self')</script>";
+ 
+}else {
+  
+}
+
+?>
+
+
+
+
 <div style="padding:10%">
 
 
@@ -31,7 +55,7 @@
             
                 <div class="mt-4 pt-2">
                     <input type="submit" value="Submit" class="bg-secondary py-2 px-3 border-0" style='border-radius:50px; color:white;' name='proposal_submit'>
-                    <a href="../index.php" class="bg-secondary py-2 px-3 border-0" style='text-decoration:none; border-radius:50px; color:white;' >RETURN TO HOME</a>
+                    <a href="./index.php" class="bg-secondary py-2 px-3 border-0" style='text-decoration:none; border-radius:50px; color:white;' >RETURN TO HOME</a>
 
 
 
@@ -73,15 +97,27 @@ if(isset($_POST['proposal_submit'])) {
     $rows_count=mysqli_num_rows($result);
     if($rows_count>0){
         echo "<script>alert('request already exists')</script>";
+        echo "<script> window.open('./index.php?chooseMinor','_self')</script>";
     }
-    else{
+    else {
         // insert query
     
     $insert_query="insert into `requests` (regNo,facultyid,proposal,project_name) values ('$regNo','$facultyId','$proposal','$project_name')";
     
     $sql_execute=mysqli_query($con,$insert_query);
+
+    $select_query="select * from `students` where regNo='$regNo'";
+    $result=mysqli_query($con,$select_query);
+    $row = mysqli_fetch_assoc($result);
+    $req=$row['req'];
+    $req+=1;
+
+
+    $updateStu="UPDATE `students` SET `req`='$req' WHERE regNo='$regNo'";
+    $result_query6 = mysqli_query($con, $updateStu);
    
     echo "<script> alert('requested succesfully')</script>";
+    echo "<script> window.open('./index.php?chooseMinor','_self')</script>";
     // echo "<script> window.open('profile.php','self')</script>";
     }
 

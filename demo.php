@@ -332,7 +332,11 @@ if(isset($_SESSION['pno'])){
             </div>
         </form>
     </div>
+    
+    <script src="timeTable.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
 
 

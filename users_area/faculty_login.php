@@ -59,6 +59,7 @@ body{
 <div class="topnav">
   <a  href="user_login.php">student login</a>
   <a class="active"href="faculty_login.php">faculty Login</a>
+  <a href="admin_login.php">admin Login</a>
   
 </div>
 
@@ -140,10 +141,10 @@ if (isset($_POST['user_login'])) {
                 
                 $_SESSION['facultyId']=$facultyId;
                 $_SESSION['role']='faculty';
-                echo "<script> alert('Login succesful')</script>";
+                
                 // echo "<script> window.open('profile.php','self')</script>";
                 
-                echo "<script> window.open('../faculty/index.php','_self')</script>";
+                echo "<script> window.open('../faculty/index.php?homePage','_self')</script>";
                 }
 
 // change ip of user in user_table

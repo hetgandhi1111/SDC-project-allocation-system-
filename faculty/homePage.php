@@ -3,16 +3,20 @@
 
 <?php
 
-                    $regNo=$_SESSION['regNo'];
-         $user_image="Select * from `students` where regNo='$regNo'";
+                    $facultyId=$_SESSION['facultyId'];
+         $user_image="Select * from `faculty` where facultyId='$facultyId'";
                     $result_image=mysqli_query($con,$user_image);
                     $row_image=mysqli_fetch_array($result_image);
                     $result_image=$row_image['user_image'];
                     $name=$row_image['name'];
                     $phoneNo=$row_image['phoneNo'];
                     $email=$row_image['email'];
-                    $branch=$row_image['branch'];
-                    $year=$row_image['year'];
+                    // $branch=$row_image['branch'];
+                    // $year=$row_image['year'];
+                    $studentsAlloted=$row_image['studentsAlloted'];
+                    $designation= $row_image['designation'];
+                    $specialization= $row_image['specialization'];
+                
                     ?>
 
 
@@ -30,20 +34,24 @@
                     <div class='info'>
                         
                         <p>Hey, <b>$name</b> </p>
-                        <small class='text-muted'>$regNo</small>
+                        <small class='text-muted'>$facultyId</small>
                     </div>
                 </div>
                 <div class='about'>
-                    <h5>Course</h5>
-                    <p>$branch</p>
-                    <h5>Year</h5>
-                    <p>$year</p>
+                    
                     <h5>Contact</h5>
                     <p>$phoneNo</p>
                     <h5>Email</h5>
                     <p>$email</p>
                     <h5>phone no</h5>
                     <p>$phoneNo</p>
+                    <h5>studentsAlloted</h5>
+                    <p>$studentsAlloted</p>
+                    <h5>designation</h5>
+                    <p>$designation</p>
+                    <h5>specialization</h5>
+                    <p>$specialization</p>
+                    
                    "; ?>
                 </div>
             </div>

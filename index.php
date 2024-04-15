@@ -21,7 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
 
-   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="icon" type="image/x-icon" href="images/sdc.webp">
     
     <link rel="shortcut icon" href="./images/logo.jpg">
@@ -41,6 +42,11 @@
            
         </div>
         <div class="navbar">
+            <a href="/proj-alloc/index.php?profile=$regNo" class="active">
+            <span class="material-symbols-outlined">
+account_circle
+</span>                <h3>Profile</h3>
+            </a>
             <a href="/proj-alloc/index.php?homePage" class="active">
                 <span class="material-icons-sharp">home</span>
                 <h3>Home</h3>
@@ -145,11 +151,16 @@ mark_email_unread
             if(isset($_GET['requests'])){
                 include('requests.php');
             }
+            if(isset($_GET['facultyDetail'])){
+                include('facultyDetail.php');
+            }
             ?>
 
 
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
- 
+
+<script src="timeTable.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

@@ -19,12 +19,14 @@ button {
   outline: 0;
   display: inline-block;
   padding: 8px;
-  color: white;
-  background-color: #000;
+  color: grey;
+  font-size: 18px;
+  background-color: ;
   text-align: center;
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+  
 }
 
 a {
@@ -58,9 +60,14 @@ echo"
   <h1>$name</h1>
   <p class='title'>$branch</p>
   <p>Manipal University</p>
-  <p><button>$email</button></p>
-  <p><button>$phoneNo</button></p>
+  <p>$email</p>
+  <p>$phoneNo</p>
 </div>
 </div>
 ";
 ?>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
