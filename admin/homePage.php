@@ -14,15 +14,16 @@
         <thead>
             <tr>
                 <th>S.No.</th>
+                <th>Image</th>
                 <th>Name Of student</th>
-                <th>MUJ ID</th>
-                <th>Designation</th>
-                <th>Specialization</th>
+                <th>registration ID</th>
+                <th>branch</th>
+                <th>year</th>
                 <th>Mobile No</th>
                 <th>E-mail ID</th>
-                <th>Alloted Students</th>
-                <th>Problem Statement</th>
-                <th>Apply</th>
+                <th>mentor ID </th>
+                <th>Req</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -35,9 +36,9 @@
              while ($row = mysqli_fetch_assoc($result_query)) {
                 // Access the column values
                 $name=$row['name']; 
-                $facultyId=$row['facultyId']; 
+                $regNo=$row['regNo']; 
                 $phoneNo=$row['phoneNo']; 
-                $email=$row['email']; 
+                $branch=$row['branch']; 
                 $studentsAlloted=$row['studentsAlloted']; 
                 $driveLink=$row['driveLink']; 
                 $designation=$row['designation']; 
