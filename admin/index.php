@@ -43,49 +43,50 @@
            
         </div>
         <div class="navbar ">
-            <a href="/proj-alloc/admin/index.php?homePage" class="active">
+            <!-- <a href="/proj-alloc/admin/index.php?homePage" class="active">
                 <span class="material-icons-sharp">home</span>
                 <h3>Home</h3>
-            </a>
+            </a> -->
            
 
 
-            <div class="dropdown">
+            
             <a href="/proj-alloc/admin/index.php?homePage" class="active">
             <span class="material-symbols-outlined">
 group
 </span>
-                <h3>Users</h3>
+                <h3>Students List</h3>
             </a>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div>
+    
+ 
 
 
 
-            <a href="/proj-alloc/admin/index.php?chooseMinor" onclick="timeTableAll()">
+            <a href="/proj-alloc/admin/index.php?facultyList" onclick="timeTableAll()">
             <span class="material-symbols-outlined">
-check_box
+supervised_user_circle
 </span>
-                <h3>  Accept Requests</h3>
+                <h3>Faculty List</h3>
             </a> 
-            <a href="#" >
-                <span class="material-icons-sharp">today</span>
-                <h3>Time Table</h3>
+            <a href="/proj-alloc/admin/index.php?adminList" onclick="timeTableAll()">
+            <span class="material-symbols-outlined">
+shield_person
+</span>
+                <h3>Admin List</h3>
             </a> 
-            <a href="#">
-                <span class="material-icons-sharp">grid_view</span>
-                <h3>Grades</h3>
+            <a href="addFaculty.php" >
+            <span class="material-symbols-outlined">
+group_add
+</span>
+                <h3>Add Faculty</h3>
+            </a> 
+            <a href="addAdmin.php">
+            <span class="material-symbols-outlined">
+admin_panel_settings
+</span>
+                <h3>Add Admin</h3>
             </a>   
-            <a href="/proj-alloc/admin/index.php?alloted">
-            <span class="material-symbols-outlined">
-done
-</span>
-                <h3>Alloted Students</h3>
-            </a>
+           
             <a href="../users_area/user_logout.php">
                 <span class="material-icons-sharp" onclick="">logout</span>
                 <h3>Logout</h3>
@@ -94,10 +95,10 @@ done
         <div id="profile-btn">
             <span class="material-icons-sharp">person</span>
         </div>
-        <div class="theme-toggler">
+        <!-- <div class="theme-toggler">
             <span class="material-icons-sharp active">light_mode</span>
             <span class="material-icons-sharp">dark_mode</span>
-        </div>
+        </div> -->
 
 
 
@@ -117,24 +118,26 @@ done
                 include('homePage.php');
             }
             
-            if(isset($_GET['chooseMinor'])){
-                include('chooseMinor.php');
+            if(isset($_GET['req'])){
+                include('req.php');
             }
-            if(isset($_GET['accepted'])){
-                include('proposal.php');
+            if(isset($_GET['removeReq'])){
+                include('removeReq.php');
             }
-            if(isset($_GET['denied'])){
-                include('denied.php');
+            if(isset($_GET['removeAlloc'])){
+                include('removeAlloc.php');
             }
-            if(isset($_GET['profile'])){
-                include('profile.php');
+            if(isset($_GET['facultyList'])){
+                include('facultyList.php');
             }
-            if(isset($_GET['alloted'])){
-                include('alloted.php');
+           
+            if(isset($_GET['showAlloc'])){
+                include('showAlloc.php');
             }
-            if(isset($_GET['remove'])){
-                include('remove.php');
+            if(isset($_GET['adminList'])){
+                include('adminList.php');
             }
+           
             ?>
 
 

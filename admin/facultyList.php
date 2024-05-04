@@ -3,7 +3,7 @@
 
 
 <div style="padding:5%">
-    <h1>Student List</h1>
+    <h1>Faculty List</h1>
     <br>
     <br>
     <input type="text" id="searchInput" oninput="searchTable()" placeholder="Search by name">
@@ -14,14 +14,16 @@
             <tr>
                 <th>S.No.</th>
                 <th>Image</th>
-                <th>Name Of student</th>
-                <th>registration ID</th>
-                <th>branch</th>
-                <th>year</th>
+                <th>Name Of faculty</th>
+                <th>faculty ID</th>
+                <th>Designation</th>
+                <th>specialization</th>
                 <th>Mobile No</th>
                 <th>E-mail ID</th>
-                <th>mentor ID </th>
-                <th>Requests</th>
+                <th>total Allocated</th>
+                <th>proposal link</th>
+               
+                <th>View Allocated</th>
                 
             </tr>
         </thead>
@@ -29,7 +31,7 @@
       
             <?php
              $sr=1;
-             $search_query = "SELECT * FROM `students`";
+             $search_query = "SELECT * FROM `faculty`";
              $result_query = mysqli_query($con, $search_query);
 
              while ($row = mysqli_fetch_assoc($result_query)) {
@@ -37,16 +39,15 @@
                 
                 $user_image=$row['user_image']; 
                 $name=$row['name']; 
-                $regNo=$row['regNo']; 
+                $facultyId=$row['facultyId']; 
                 $phoneNo=$row['phoneNo']; 
-                $branch=$row['branch']; 
+                $designation=$row['designation']; 
+                $specialization=$row['specialization']; 
+                $studentsAlloted=$row['studentsAlloted']; 
+                $driveLink=$row['driveLink']; 
                 $email=$row['email']; 
-                $year=$row['year']; 
-            
-           
-           
-                $mentorId=$row['mentorId']; 
                 
+        
 
                 // Display table rows for each item in the armory
                 echo"
@@ -55,21 +56,33 @@
                 <td>$sr</td>
                 <td>  <img src='../users_area/user_images/$user_image' alt='John'style='width:100px'></td>
                 <td>$name</td>
-                <td>$regNo</td>
-                <td>$branch</td>
-                <td>$year</td>
+                <td>$facultyId</td>
+                <td>$designation</td>
+                <td>$specialization</td>
                 <td>$phoneNo</td>
                 <td>$email</td>
-                <td>$mentorId</td>
+                <td>$studentsAlloted</td>
                 <td>
-                <a href='/proj-alloc/admin/index.php?req=$regNo' style='background-color:rgb(48, 172, 255);
+                <a href='$driveLink' style='background-color:rgb(48, 172, 255);
                 border: none;
                 color: white;
                 padding: 15px 32px;
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
-                font-size: 16pxt;' >show requests</a>
+                font-size: 16pxt;' >View </a>
+
+                
+                </td>
+                <td>
+                <a href='/proj-alloc/admin/index.php?showAlloc=$facultyId' style='background-color:rgb(48, 172, 255);
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16pxt;' >View </a>
 
                 
                 </td>

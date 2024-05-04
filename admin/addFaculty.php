@@ -17,17 +17,10 @@ include('../functions/common_function.php');
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     />
-
-    <style>
-        body {
- background-image: url("../admin/media/lgback.jpg");
- background-color: #cccccc;
-}
-    </style>
 </head>
 <body>
-<div class="container-fluid" style=" border:8px; margin-top:20px;  background:white; opacity: 0.9;width: 800px;  box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.1);">
-    <h2 class="text-center m-4 mt-5 pt-3">New User registration</h2>
+<body class="container-fluid" style=" border:8px; margin-top:20px; width: 800px; height:950px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.1);">
+    <h2 class="text-center m-4 mt-5 pt-3">New Faculty registration</h2>
     <div class="row d-flex align-items-center justify-content-center">
         <div class="col-lg-12 col-xl-6">
             <form action="" method="post" enctype="multipart/form-data">
@@ -37,14 +30,14 @@ include('../functions/common_function.php');
  <!-- name -->
  <div class="form-outline mb-4">
                     <label for="name" class="form-label">name</label>
-                    <input type="text" id="regNo" class="form-control" placeholder="Enter your name" autocomplete="off" required="required" name="name">
+                    <input type="text" id="name" class="form-control" placeholder="Enter  name" autocomplete="off" required="required" name="name">
                 </div>
 
 
                 <!-- username -->
                 <div class="form-outline mb-4">
-                    <label for="regNo" class="form-label">registration number</label>
-                    <input type="text" id="regNo" class="form-control" placeholder="Enter your regNo" autocomplete="off" required="required" name="regNo">
+                    <label for="facultyId" class="form-label">Faculty Id</label>
+                    <input type="text" id="facultyId" class="form-control" placeholder="Enter  facultyId" autocomplete="off" required="required" name="facultyId">
                 </div>
 
                 
@@ -53,7 +46,7 @@ include('../functions/common_function.php');
                  <!-- password feild -->
                  <div class="form-outline mb-4">
                     <label for="user_password" class="form-label">Password</label>
-                    <input type="password" id="user_password" class="form-control" placeholder="Enter your password" autocomplete="off" required="required" name="user_password">
+                    <input type="password" id="user_password" class="form-control" placeholder="Enter password" autocomplete="off" required="required" name="user_password">
                 </div>
 
                 <!-- confirm password feild -->
@@ -64,48 +57,36 @@ include('../functions/common_function.php');
 
                <!-- email -->
                <div class="form-outline mb-4">
-                    <label for="email" class="form-label">email (outlook)</label>
-                    <input type="text" id="email" class="form-control" placeholder="Enter your email" autocomplete="off" required="required" name="email">
+                    <label for="email" class="form-label">email</label>
+                    <input type="text" id="email" class="form-control" placeholder="Enter  email" autocomplete="off" required="required" name="email">
                 </div>
 
 
                <div class="form-outline mb-4">
                     <label for="phoneNo" class="form-label">phoneNo</label>
-                    <input type="text" id="phoneNo" class="form-control" placeholder="Enter your phoneNo" autocomplete="off" required="required" name="phoneNo">
+                    <input type="text" id="phoneNo" class="form-control" placeholder="Enter phoneNo" autocomplete="off" required="required" name="phoneNo">
+                </div>
+               <div class="form-outline mb-4">
+                    <label for="designation" class="form-label">designation</label>
+                    <input type="text" id="designation" class="form-control" placeholder="Enter designation" autocomplete="off" required="required" name="designation">
+                </div>
+               <div class="form-outline mb-4">
+                    <label for="specialization" class="form-label">specialization</label>
+                    <input type="text" id="specialization" class="form-control" placeholder="Enter specialization" autocomplete="off" required="required" name="specialization">
                 </div>
 
-                <div class="form-outline mb-4">
-                    <label for="branch" class="form-label">branch</label>
-                    <select name="branch" id="branch" class="form-select" required="required">
-            <option value="Computer Science and Engineering">CSE</option>
-            <option value="Computer and Computer Engineering"> CCE</option>
-            <option value="Artificial Intelligence and Machine Learning"> AIML</option>
-            <option value="Internet of Things">IOT</option>
-            <!-- Add more options based on your columns -->
-        </select>
-                </div>
+               
                 <div class="form-outline mb-4">
                 <label for="user_image" class="form-label">User image</label>
                     <input type="file" id="user_image" class="form-control" required="required" name="user_image">
                 </div>
 
-                <div class="form-outline mb-4">
-                <label for="year" class="form-label">enter your year</label>
-        <select name="year" id="year" class="form-select" required="required">
-            <option value="1">first</option>
-            <option value="2"> second</option>
-            <option value="3"> third</option>
-            <option value="4">fourth</option>
-            <!-- Add more options based on your columns -->
-        </select>
-
-
-                </div>
+                
 
                 
                 <div class="mt-4 pt-2">
                     <input type="submit" value="REGISTER" class="bg-secondary py-2 px-3 border-0" style='border-radius:50px; color:white;' name='user_register'>
-                    <a href="../index.php" class="bg-secondary py-2 px-3 border-0" style='text-decoration:none; border-radius:50px; color:white;' >RETURN TO HOME</a>
+                    <a href="index.php?homePage" class="bg-secondary py-2 px-3 border-0" style='text-decoration:none; border-radius:50px; color:white;' > Cancel</a>
 
 
 
@@ -115,7 +96,7 @@ include('../functions/common_function.php');
             </form>
         </div>
     </div>
-</div>
+</body>
 
     
 </body>
@@ -133,7 +114,7 @@ include('../functions/common_function.php');
 
 
 if(isset($_POST['user_register'])) {
-    $regNo=$_POST['regNo'];
+    $facultyId=$_POST['facultyId'];
     $name=$_POST['name'];
     
 
@@ -141,35 +122,34 @@ if(isset($_POST['user_register'])) {
     $conf_user_password=$_POST['conf_user_password'];
     $email=$_POST['email'];
     $phoneNo=$_POST['phoneNo'];
-    $branch=$_POST['branch'];
-    $year=$_POST['year'];
+    $driveLink=$_POST['driveLink'];
+    $specialization=$_POST['specialization'];
+    $designation=$_POST['designation'];
     $user_image=$_FILES['user_image']['name'];
     $user_image_tmp=$_FILES['user_image']['tmp_name'];
 
     
     // select query
 
-    $select_query="select * from `students` where regNo='$regNo'";
+    $select_query="select * from `faculty` where facultyId='$facultyId'";
     $result=mysqli_query($con,$select_query);
     $rows_count=mysqli_num_rows($result);
     if($rows_count>0){
-        echo "<script>alert('regNo already exists')</script>";
+        echo "<script>alert('facultyId already exists')</script>";
     }else if($user_password!=$conf_user_password){
         echo "<script>alert('password does not match')</script>";
     }else{
         // insert query
     
-    $insert_query="insert into `students` (regNo,name,password,email,phoneNo,branch,year,user_image) values ('$regNo','$name','$user_password','$email','$phoneNo','$branch','$year','$user_image')";
+    $insert_query="insert into `faculty` (facultyId,name,password,email,phoneNo,driveLink,specialization,designation,user_image) values ('$facultyId','$name','$user_password','$email','$phoneNo','$driveLink','$specialization','$designation','$user_image')";
     
     $sql_execute=mysqli_query($con,$insert_query);
-    move_uploaded_file($user_image_tmp,"./user_images/$user_image");
+    move_uploaded_file($user_image_tmp,"../users_area/user_images/$user_image");
 
     echo "<script> alert('register succesful')</script>";
     // echo "<script> window.open('profile.php','self')</script>";
-    echo "<script> window.open('./user_login.php','_self')</script>";
+    echo "<script> window.open('index.php?facultyList','_self')</script>";
     }
-
-
 
 }
 

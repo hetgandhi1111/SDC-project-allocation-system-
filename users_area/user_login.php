@@ -23,6 +23,11 @@ global $con;
 
     <style>
 
+body {
+ background-image: url("../admin/media/lgback.jpg");
+ background-color: #cccccc;
+}
+
 body{
     overflow-x: hidden;
 }
@@ -52,6 +57,10 @@ body{
   background-color: #04AA6D;
   color: white;
 }
+
+.container{
+    margin-top:auto;}
+    
     </style>
 </head>
 <body>
@@ -66,7 +75,9 @@ body{
 
 
 
-<div class="container-fluid my-3 p-5" style="border:8px; margin-top:20px; width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
+<div class="container-fluid my-3 p-5" style="border:8px; 
+opacity: 0.9;
+ width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
     <h2 class="text-center p-3">User Login</h2>
     <div class="row d-flex align-items-center justify-content-center mt-5">
         <div class="col-lg-12 col-xl-6">

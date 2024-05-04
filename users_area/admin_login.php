@@ -22,6 +22,10 @@ global $con;
 
 
     <style>
+        body {
+ background-image: url("../admin/media/lgback.jpg");
+ background-color: #cccccc;
+}
 
 body{
     overflow-x: hidden;
@@ -66,7 +70,7 @@ body{
 
 
 
-<div class="container-fluid my-3 p-5" style="border:8px; margin-top:20px; width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
+<div class="container-fluid my-3 p-5" style="border:8px; opacity: 0.9;margin-top:20px; width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
     <h2 class="text-center p-3">Admin Login</h2>
     <div class="row d-flex align-items-center justify-content-center mt-5">
         <div class="col-lg-12 col-xl-6">
@@ -74,8 +78,8 @@ body{
 
                 <!-- username -->
                 <div class="form-outline mb-4">
-                    <label for="facultyId" class="form-label">admin Number</label>
-                    <input type="text" id="facultyId" class="form-control" placeholder="Enter your faculty number" autocomplete="off" required="required" name="facultyId">
+                    <label for="adminId" class="form-label">admin Number</label>
+                    <input type="text" id="adminId" class="form-control" placeholder="Enter Admin Id" autocomplete="off" required="required" name="adminId">
                 </div>
 
             
@@ -90,7 +94,7 @@ body{
                 <div class="mt-4 pt-2">
                     <input type="submit" value="LOGIN" class="bg-secondary py-2 px-3 border-0 " style='border-radius:50px; color:white;' name="user_login">
 
-                    <a style='border-radius:50px' href='user_registration.php' class='btn btn-secondary'>register</a>
+                   
                     
                   
                 </div>
@@ -106,10 +110,10 @@ body{
 
 <?php
 if (isset($_POST['user_login'])) {
-   $facultyId=$_POST['facultyId'];
+   $adminId=$_POST['adminId'];
     $password=$_POST['password'];
 
-    $select_query="select * from `faculty` where facultyId='$facultyId'";
+    $select_query="select * from `admin` where adminId='$adminId'";
     $result=mysqli_query($con,$select_query);
     $row_count=mysqli_num_rows($result);
 
@@ -122,7 +126,7 @@ if (isset($_POST['user_login'])) {
 
     //if there are cart items user redirected to cart
 
-    // $select_query_cart="select * from `user_table` where username='$facultyId'";
+    // $select_query_cart="select * from `user_table` where username='$adminId'";
     // $select_cart=mysqli_query($con,$select_query_cart);
     // $row_count_cart=mysqli_num_rows($select_cart);
 
@@ -139,7 +143,7 @@ if (isset($_POST['user_login'])) {
             if($row_count==1){
                 // find access field of user
                 
-                $_SESSION['adminId']=$facultyId;
+                $_SESSION['adminId']=$adminId;
                 $_SESSION['role']='admin';
                 
                 // echo "<script> window.open('profile.php','self')</script>";

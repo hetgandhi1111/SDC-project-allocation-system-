@@ -29,7 +29,7 @@
             <div class='profile'>
                 <div class='top'>
                     <div class='profile-photo'>
-                        <img src='users_area/user_images/$result_image' alt=''>
+                        <img src='../users_area/user_images/$result_image' alt=''>
                     </div>
                     <div class='info'>
                         

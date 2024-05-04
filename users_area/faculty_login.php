@@ -22,7 +22,10 @@ global $con;
 
 
     <style>
-
+body {
+ background-image: url("../admin/media/lgback.jpg");
+ background-color: #cccccc;
+}
 body{
     overflow-x: hidden;
 }
@@ -66,7 +69,7 @@ body{
 
 
 
-<div class="container-fluid my-3 p-5" style="border:8px; margin-top:20px; width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
+<div class="container-fluid my-3 p-5" style="border:8px; opacity: 0.9;margin-top:20px; width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
     <h2 class="text-center p-3">Faculty Login</h2>
     <div class="row d-flex align-items-center justify-content-center mt-5">
         <div class="col-lg-12 col-xl-6">
@@ -90,7 +93,7 @@ body{
                 <div class="mt-4 pt-2">
                     <input type="submit" value="LOGIN" class="bg-secondary py-2 px-3 border-0 " style='border-radius:50px; color:white;' name="user_login">
 
-                    <a style='border-radius:50px' href='user_registration.php' class='btn btn-secondary'>register</a>
+                  
                     
                   
                 </div>
