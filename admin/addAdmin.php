@@ -17,9 +17,47 @@ include('../functions/common_function.php');
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     />
+
+    <style>
+body {
+ background-image: url("../admin/media/lgback.jpg");
+ background-color: #cccccc;
+}
+body{
+    overflow-x: hidden;
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+    </style>
+
+
 </head>
 <body>
-<body class="container-fluid" style=" border:8px; margin-top:20px; width: 800px; height:950px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.1);">
+<div class="container-fluid" style=" border:8px; margin-top:20px; width: 800px; border-radius: 30px; opacity: 0.8; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.1);">
     <h2 class="text-center m-4 mt-5 pt-3">New admin registration</h2>
     <div class="row d-flex align-items-center justify-content-center">
         <div class="col-lg-12 col-xl-6">
@@ -79,7 +117,7 @@ include('../functions/common_function.php');
             </form>
         </div>
     </div>
-</body>
+</div>
 
     
 </body>

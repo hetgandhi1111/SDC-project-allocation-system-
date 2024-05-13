@@ -26,7 +26,7 @@ include('../functions/common_function.php');
     </style>
 </head>
 <body>
-<div class="container-fluid" style=" border:8px; margin-top:20px;  background:white; opacity: 0.9;width: 800px;  box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.1);">
+<div class="container-fluid" style=" border:8px; margin-top:20px;  background:white; opacity: 0.8;width: 800px;  box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.1);">
     <h2 class="text-center m-4 mt-5 pt-3">New User registration</h2>
     <div class="row d-flex align-items-center justify-content-center">
         <div class="col-lg-12 col-xl-6">

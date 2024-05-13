@@ -76,7 +76,7 @@ body{
 
 
 <div class="container-fluid my-3 p-5" style="border:8px; 
-opacity: 0.9;
+opacity: 0.8;
  width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
     <h2 class="text-center p-3">User Login</h2>
     <div class="row d-flex align-items-center justify-content-center mt-5">
@@ -171,12 +171,13 @@ if (isset($_POST['user_login'])) {
 
         }else{
             echo "<script> alert('invalid credentials')</script>";
-            echo "<script> window.open('../index.php','_self')</script>";
+           
         }
 
-    }else{
-        echo "<script> alert('invalid credentials')</script>";
     }
+    // else{
+    //     echo "<script> alert('invalid credentials')</script>";
+    // }
   
 
 

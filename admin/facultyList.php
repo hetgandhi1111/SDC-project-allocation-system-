@@ -9,7 +9,7 @@
     <input type="text" id="searchInput" oninput="searchTable()" placeholder="Search by name">
 
 
-    <table id="nameTable">
+    <table id="nameTable" style="border-radius: 30px;">
         <thead>
             <tr>
                 <th>S.No.</th>
@@ -65,6 +65,7 @@
                 <td>
                 <a href='$driveLink' style='background-color:rgb(48, 172, 255);
                 border: none;
+                border-radius: 30px;
                 color: white;
                 padding: 15px 32px;
                 text-align: center;
@@ -78,6 +79,7 @@
                 <a href='/proj-alloc/admin/index.php?showAlloc=$facultyId' style='background-color:rgb(48, 172, 255);
                 border: none;
                 color: white;
+                border-radius: 30px;
                 padding: 15px 32px;
                 text-align: center;
                 text-decoration: none;

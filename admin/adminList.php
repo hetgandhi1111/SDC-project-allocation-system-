@@ -9,7 +9,7 @@
     <input type="text" id="searchInput" oninput="searchTable()" placeholder="Search by name">
 
 
-    <table id="nameTable">
+    <table id="nameTable" style="border-radius: 30px;">
         <thead>
             <tr>
                 <th>S.No.</th>
