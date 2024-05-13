@@ -86,43 +86,7 @@ mark_email_unread
 
 
 
-        
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-  <img src="images\black.webp" alt="" width="30" height="24" class="d-inline-block align-text-top">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/proj-alloc/index.php?homePage">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/proj-alloc/index.php?chooseMinor">Choose Minor Project</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="https://mujslcm.jaipur.manipal.edu:122/Student/Academic/ViewTimeTableForStudent">Time Table</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="https://mujslcm.jaipur.manipal.edu:122/Student/Academic/GradesForStudent">Grades</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/proj-alloc/index.php?requests">Requests</a>
-        </li>
-        
-        
-      </ul>
-      <li class="nav-item">
-          <a class="nav-link active btn btn-outline-danger" aria-current="page" href="users_area/user_logout.php">Log Out</a>
-        </li>
       
-    </div>
-  </div>
-</nav> -->
-
         
     </header>
 

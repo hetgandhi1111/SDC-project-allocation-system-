@@ -86,6 +86,21 @@ admin_panel_settings
 </span>
                 <h3>Add Admin</h3>
             </a>   
+
+
+            <a href="/proj-alloc/admin/index.php?announcements">
+            <span class="material-symbols-outlined">
+admin_panel_settings
+</span>
+                <h3>View Announcement</h3>
+            </a>   
+            <a href="/proj-alloc/admin/index.php?announcements">
+            <span class="material-symbols-outlined">
+admin_panel_settings
+</span>
+                <h3>Add Announcement</h3>
+            </a>   
+             
            
             <a href="../users_area/user_logout.php">
                 <span class="material-icons-sharp" onclick="">logout</span>
@@ -136,6 +151,9 @@ admin_panel_settings
             }
             if(isset($_GET['adminList'])){
                 include('adminList.php');
+            }
+            if(isset($_GET['announcements'])){
+                include('Announcements.php');
             }
            
             ?>

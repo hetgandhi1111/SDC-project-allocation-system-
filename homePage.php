@@ -135,18 +135,22 @@
             <div class="announcements">
                 <h2>Announcements</h2>
                 <div class="updates">
-                    <div class="message">
-                        <p> <b>Academic</b> Summer training internship with Live Projects.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
+                <?php
+                $search_query = "SELECT * FROM `announcements`";
+                $result_query = mysqli_query($con, $search_query);
+   
+                while ($row = mysqli_fetch_assoc($result_query)) {
+                   $announcement=$row['announcement'];
+                   $type=$row['type'];
+
+echo"
+                    <div class='message'>
+                        <p> <b>$type</b> $announcement</p>
+                        
                     </div>
-                    <div class="message">
-                        <p> <b>Co-curricular</b> Global internship oportunity by Student organization.</p>
-                        <small class="text-muted">10 Minutes Ago</small>
-                    </div>
-                    <div class="message">
-                        <p> <b>Examination</b> Instructions for Mid Term Examination.</p>
-                        <small class="text-muted">Yesterday</small>
-                    </div>
+                    ";
+                }
+                   ?>
                 </div>
             </div>
 
