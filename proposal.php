@@ -54,9 +54,16 @@ if ($mentorId!=NULL) {
                 
             
                 <div class="mt-4 pt-2">
-                    <input type="submit" value="Submit" class="bg-secondary py-2 px-3 border-0" style='border-radius:50px; color:white;' name='proposal_submit'>
-                    <a href="./index.php" class="bg-secondary py-2 px-3 border-0" style='text-decoration:none; border-radius:50px; color:white;' >RETURN TO HOME</a>
-
+                    <input type="submit" value="Submit" class="bg-secondary py-2 px-3 border-0" style='border-radius:50px; color:#060505;' name='proposal_submit'>
+                    <a href='./index.php?chooseMinor' class='bg-secondary py-2 px-3 border-0' style='background-color: #738f85;
+                  border: none;
+                  border-radius: 30px;
+                  color: white;
+                  padding: 15px 32px;
+                  text-align: center;
+                  text-decoration: none;
+                  display: inline-block;
+                  font-size: 16px;'>Return home</a>
 
 
     
