@@ -61,47 +61,53 @@ body{
 <body>
 
 <div class="topnav">
-  <a  href="user_login.php">student login</a>
-  <a href="faculty_login.php">faculty Login</a>
-  <a class="active"href="admin_login.php">admin Login</a>
+  <a  href="user_login.php">Student Login</a>
+  <a href="faculty_login.php">Faculty Login</a>
+  <a class="active"href="admin_login.php">Admin Login</a>
   
 </div>
 
 
 
+<style>
+    body {
+        background-image: url("../admin/media/lgback.jpg");
+        background-color: #cccccc;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .card-custom {
+        max-width: 500px;
+        background: rgba(255, 218, 185, 0.8); /* Light orangish color with opacity */
+        border-radius: 20px;
+        box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);
+    }
+</style>
 
-<div class="container-fluid my-3 p-5" style="border:8px; opacity: 0.8;margin-top:20px; width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
-    <h2 class="text-center p-3">Admin Login</h2>
-    <div class="row d-flex align-items-center justify-content-center mt-5">
-        <div class="col-lg-12 col-xl-6">
-            <form action="" method="post" >
-
+<div class="container my-5 d-flex justify-content-center">
+    <div class="card card-custom p-5">
+        <h2 class="text-center p-3">Admin Login</h2>
+        <div class="card-body">
+            <form action="" method="post">
                 <!-- username -->
                 <div class="form-outline mb-4">
-                    <label for="adminId" class="form-label">admin Number</label>
+                    <label for="adminId" class="form-label">Admin Number</label>
                     <input type="text" id="adminId" class="form-control" placeholder="Enter Admin Id" autocomplete="off" required="required" name="adminId">
                 </div>
-
-            
-
-                 <!-- password feild -->
-                 <div class="form-outline mb-4">
+                <!-- password field -->
+                <div class="form-outline mb-4">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" id="password" class="form-control" placeholder="Enter your password" autocomplete="off" required="required" name="password">
                 </div>
-
-            
-                <div class="mt-4 pt-2">
-                    <input type="submit" value="LOGIN" class="bg-secondary py-2 px-3 border-0 " style='border-radius:50px; color:white;' name="user_login">
-
-                   
-                    
-                  
+                <div class="mt-4 pt-2 d-flex justify-content-between">
+                    <input type="submit" value="LOGIN" class="bg-secondary py-2 px-3 border-0" style="border-radius: 50px; color: white;" name="user_login">
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
     
 </body>

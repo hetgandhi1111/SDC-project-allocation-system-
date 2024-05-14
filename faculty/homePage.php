@@ -43,13 +43,13 @@
                     <p>$phoneNo</p>
                     <h5>Email</h5>
                     <p>$email</p>
-                    <h5>phone no</h5>
+                    <h5>Phone no</h5>
                     <p>$phoneNo</p>
-                    <h5>studentsAlloted</h5>
+                    <h5>StudentsAlloted</h5>
                     <p>$studentsAlloted</p>
-                    <h5>designation</h5>
+                    <h5>Designation</h5>
                     <p>$designation</p>
-                    <h5>specialization</h5>
+                    <h5>Specialization</h5>
                     <p>$specialization</p>
                     
                    "; ?>

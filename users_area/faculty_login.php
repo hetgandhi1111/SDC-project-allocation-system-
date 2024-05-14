@@ -11,7 +11,7 @@ global $con;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>faculty login</title>
+    <title>Faculty Login</title>
     <!-- bootstrap css link  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- font awesome link  -->
@@ -60,47 +60,51 @@ body{
 <body>
 
 <div class="topnav">
-  <a  href="user_login.php">student login</a>
-  <a class="active"href="faculty_login.php">faculty Login</a>
-  <a href="admin_login.php">admin Login</a>
+  <a  href="user_login.php">Student Login</a>
+  <a class="active"href="faculty_login.php">Faculty Login</a>
+  <a href="admin_login.php">Admin Login</a>
   
 </div>
 
+<style>
+    body {
+        background-image: url("../admin/media/lgback.jpg");
+        background-color: #cccccc;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .card-custom {
+        max-width: 400px; /* Adjusted width */
+        background: rgba(255, 218, 185, 0.8); /* Light orangish color with opacity */
+        border-radius: 20px;
+        box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);
+    }
+</style>
 
-
-
-<div class="container-fluid my-3 p-5" style="border:8px; opacity: 0.8;margin-top:20px; width: 650px; height:600px; background:white; box-shadow: 2px 4px 8px 8px rgba(0, 0, 0, 0.05);">
-    <h2 class="text-center p-3">Faculty Login</h2>
-    <div class="row d-flex align-items-center justify-content-center mt-5">
-        <div class="col-lg-12 col-xl-6">
-            <form action="" method="post" >
-
+<div class="container my-5 d-flex justify-content-center">
+    <div class="card card-custom p-5">
+        <h2 class="text-center p-3">Faculty Login</h2>
+        <div class="card-body">
+            <form action="" method="post">
                 <!-- username -->
                 <div class="form-outline mb-4">
-                    <label for="facultyId" class="form-label">faculty Number</label>
+                    <label for="facultyId" class="form-label">Faculty Number</label>
                     <input type="text" id="facultyId" class="form-control" placeholder="Enter your faculty number" autocomplete="off" required="required" name="facultyId">
                 </div>
-
-            
-
-                 <!-- password feild -->
-                 <div class="form-outline mb-4">
+                <!-- password field -->
+                <div class="form-outline mb-4">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" id="password" class="form-control" placeholder="Enter your password" autocomplete="off" required="required" name="password">
                 </div>
-
-            
-                <div class="mt-4 pt-2">
-                    <input type="submit" value="LOGIN" class="bg-secondary py-2 px-3 border-0 " style='border-radius:50px; color:white;' name="user_login">
-
-                  
-                    
-                  
+                <div class="mt-4 pt-2 d-flex justify-content-between">
+                    <input type="submit" value="LOGIN" class="bg-secondary py-2 px-3 border-0" style="border-radius: 50px; color: white;" name="user_login">
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
     
 </body>
