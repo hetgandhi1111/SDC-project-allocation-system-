@@ -3,7 +3,7 @@
 
 
 <div style="padding:5%">
-    <h1>Faculty List</h1>
+    <h1>Admin List</h1>
     <br>
     <br>
     <input type="text" id="searchInput" oninput="searchTable()" placeholder="Search by name">

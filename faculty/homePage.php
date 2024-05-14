@@ -154,31 +154,38 @@
 
             <div class="leaves">
                 <h2>Teachers on leave</h2>
-                <div class="teacher">
-                    <div class="profile-photo"><img src="./images/profile-2.jpeg" alt=""></div>
-                    <div class="info">
-                        <h3>The Professor</h3>
-                        <small class="text-muted">Full Day</small>
-                    </div>
-                </div>
-                <div class="teacher">
-                    <div class="profile-photo"><img src="./images/profile-3.jpg" alt=""></div>
-                    <div class="info">
-                        <h3>Lisa Manobal</h3>
-                        <small class="text-muted">Half Day</small>
-                    </div>
-                </div>
-                <div class="teacher">
-                    <div class="profile-photo"><img src="./images/profile-4.jpg" alt=""></div>
-                    <div class="info">
-                        <h3>Himanshu Jindal</h3>
-                        <small class="text-muted">Full Day</small>
-                    </div>
-                </div>
-            </div>
+                <?php
 
-        </div>
+                    $search_query = "SELECT * FROM `tol`";
+                    $result_query = mysqli_query($con, $search_query);
+
+                    while ($row = mysqli_fetch_assoc($result_query)) {
+                    $facultyId=$row['facultyId'];
+                    $remarks=$row['remarks'];
+                    $addedBy=$row['addedBy'];
+
+                    $search_query2 = "SELECT * FROM `faculty` where facultyId='$facultyId'";
+                    $result_query2 = mysqli_query($con, $search_query2);
+
+                    $row2 = mysqli_fetch_assoc($result_query2);
+                    $name=$row2['name'];
+                    $user_image=$row2['user_image'];
+
+                    echo"
+                                    <div class='teacher'>
+                                        <div class='profile-photo'><img src='../users_area/user_images/$user_image' alt=''></div>
+                                        <div class='info'>
+                                            <h3>$name</h3>
+                                            <small class='text-muted'>$remarks</small>
+                            </div>
+                        </div>
+                        ";
+                    }
+                                    ?>
+                    </div>
+            </div>
     </div>
+
 
     
     <script src="timeTable.js"></script>

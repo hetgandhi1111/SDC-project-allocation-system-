@@ -1,5 +1,5 @@
 <div style="padding:12%">
-    <h1 style="text-allign:center ">Announcements Students</h1>
+    <h1 style="text-allign:center ">Announcements </h1>
 
 
     <table id="nameTable">
